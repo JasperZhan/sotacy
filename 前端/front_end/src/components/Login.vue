@@ -1,7 +1,25 @@
 <template>
   <div class="login_container">
     <div class="login_box">
-
+      <!--头像区域-->
+      <div class="avatar_box">
+        <img src="../assets/bojiboji.png" alt="">
+      </div>
+      <!--登陆表单区域-->
+      <el-form label-width="0px" class="login_form">
+        <!--用户名-->
+        <el-form-item >
+          <el-input prefix-icon="el-icon-s-custom"></el-input>
+        </el-form-item>
+        <!--密码-->
+        <el-form-item >
+          <el-input prefix-icon="el-icon-s-goods"></el-input>
+        </el-form-item>
+        <!--按钮-->
+        <el-form-item class="btns">
+          <el-button type="primary" plain>登录</el-button>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
@@ -26,5 +44,36 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+  .avatar_box{
+    height: 130px;
+    width: 130px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 0 10px #ddd;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #eeeeee;
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #eee;
+    }
+  }
+}
+
+.login_form{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.btns{
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
