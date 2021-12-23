@@ -10,11 +10,6 @@ public class ApiRestResponse<T> {
     private T data;
     private Boolean isSuccess;
 
-    private static final int SUCCESS_CODE = 1;
-    private static final int FALSE_CODE = 0;
-    private static final String SUCCESS_MSG = "SUCCESS";
-    private static final String FALSE_MSG = "FALSE";
-
     public ApiRestResponse(boolean isSuccess, CodeResult codeResult, T data) {
         this.codeResult = codeResult;
         this.data = data;
