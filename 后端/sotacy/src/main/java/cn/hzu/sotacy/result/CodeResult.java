@@ -44,8 +44,22 @@ public enum CodeResult {
     // 1.3.2 用户课程异常
 
     // 1.3.3 课程字段异常
-    EMPTY_TITLE(13301, "标题不能为空"),
-    EMPTY_ID(13302, "课程id为空"),
+    EMPTY_COURSE_TITLE(13301, "课程标题为空"),
+    EMPTY_COURSE_ID(13302, "课程id为空"),
+    EMPTY_COURSE_UNIT_ORDER(13303, "课程单元次序为空"),
+    EMPTY_COURSE_UNIT_TITLE(13304, "课程单元标题为空"),
+    EMPTY_COURSE_UNIT_ID(13305, "课程单元id为空"),
+
+    // 1.4 视频服务异常 14000
+    // 1.4.1 管理视频异常 14100
+    EMPTY_VIDEO_URL(14101, "视频地址为空"),
+    EMPTY_VIDEO_NAME(14102, "视频名字为空"),
+
+    // 1.5 判断题 15000
+    // 1.5.1 管理判断题异常 15100
+    EMPTY_JUDGMENT_QUESTION_SUBJECT(15101, "判断题题目为空"),
+    EMPTY_JUDGMENT_QUESTION_ANSWER(15102, "判断题答案为空"),
+    ERROR_FORMAT_JUDGMENT_QUESTION_ANSWER(15103, "判断题答案格式错误（只能为0：错或1：对）"),
 
 
     // 2. 业务操作成功 20000
@@ -72,7 +86,17 @@ public enum CodeResult {
 
     // 2.3 课程服务正常 23000
     // 2.3.1 管理员课程操作正常 23100
-    SUCCESS_ADD_COURSE(23101, "添加课程成功");
+    SUCCESS_ADD_COURSE(23101, "添加课程成功"),
+    SUCCESS_ADD_COURSE_UNIT(23102, "添加课程单元成功"),
+
+    // 2.4 视频服务异常 14000
+    // 2.4.1 管理视频异常 14100
+    SUCCESS_ADD_VIDEO(24101, "添加视频成功"),
+
+    // 2.5 判断题 15000
+    // 2.5.1 管理判断题成功 15100
+    LEGAL_JUDGMENT_QUESTION_ANSWER(25101, "判断题答案格式合法"),
+    SUCCESS_ADD_QUESTION_ANSWER(25102, "判断题添加成功");
 
 //    INSERT_FAILED(10005, "插入失败，请重试"),
 //    UPDATE_FAILED(10008, "更新失败"),
