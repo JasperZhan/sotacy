@@ -2,4 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.hzu.sotacy.dao.course.CourseDao">
 
+    <insert id="addCourse" parameterType="cn.hzu.sotacy.model.course.Course" useGeneratedKeys="true" keyProperty="id">
+        insert into course (course.title, course.describe) values(#{title,jdbcType=VARCHAR}, #{describe,jdbcType=LONGNVARCHAR});
+    </insert>
+
 </mapper>

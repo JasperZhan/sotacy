@@ -14,5 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface CourseUnitDao extends BaseMapper<CourseUnit> {
-
+    int addCourseUnit(CourseUnit courseUnit);
 }

@@ -3,6 +3,7 @@ package cn.hzu.sotacy.dao.judgmentQuestion;
 import cn.hzu.sotacy.model.judgmentQuestion.JudgmentQuestion;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -15,4 +16,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface JudgmentQuestionDao extends BaseMapper<JudgmentQuestion> {
 
+    Integer addRelationToCourseUnit(@Param("courseUnitId") Integer courseUnitId, @Param("judgmentQuestionId") Integer judgmentQuestionId);
 }
