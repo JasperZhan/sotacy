@@ -2,4 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.hzu.sotacy.dao.course.CourseUnitDao">
 
+    <insert id="addCourseUnit" parameterType="cn.hzu.sotacy.model.course.CourseUnit" useGeneratedKeys="true" keyProperty="id">
+        insert into course_unit
+            (
+             course_unit.title,
+             course_unit.describe,
+             course_unit.course_id,
+             course_unit.`order`)
+        values
+               (
+                #{title,jdbcType=VARCHAR},
+                #{describe,jdbcType=LONGNVARCHAR},
+                #{courseId,jdbcType=INTEGER},
+                #{order,jdbcType=TINYINT});
+    </insert>
 </mapper>
