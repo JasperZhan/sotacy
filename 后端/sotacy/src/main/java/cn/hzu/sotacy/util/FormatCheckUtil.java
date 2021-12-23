@@ -1,8 +1,10 @@
 package cn.hzu.sotacy.util;
 
 
+import cn.hzu.sotacy.model.judgmentQuestion.JudgmentQuestion;
 import cn.hzu.sotacy.response.ApiRestResponse;
 import cn.hzu.sotacy.result.CodeResult;
+import io.swagger.annotations.Api;
 
 import java.util.regex.Pattern;
 
@@ -70,5 +72,23 @@ public class FormatCheckUtil {
         //    return ApiRestResponse.result(CodeResult.)
 
         return ApiRestResponse.success(CodeResult.PASSWORD_LEGAL);
+    }
+
+    /**
+     * 判断题答案格式校验
+     * @author Jasper Zhan
+     * @date 2021/12/23 15:36
+     * @param answer 判断题答案
+     * @return cn.hzu.sotacy.response.ApiRestResponse<cn.hzu.sotacy.model.judgmentQuestion.JudgmentQuestion>
+     */
+    public static ApiRestResponse<JudgmentQuestion> answerCheck(String answer) {
+
+        if (answer == null)
+            return ApiRestResponse.fail(CodeResult.EMPTY_JUDGMENT_QUESTION_ANSWER);
+
+        if (!(answer.equals("0") || answer.equals("1")))
+            return ApiRestResponse.fail(CodeResult.ERROR_FORMAT_JUDGMENT_QUESTION_ANSWER);
+
+        return ApiRestResponse.success(CodeResult.LEGAL_JUDGMENT_QUESTION_ANSWER);
     }
 }
