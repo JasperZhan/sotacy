@@ -11,9 +11,11 @@ import {
   Submenu,
   MenuItemGroup,
   Row,
-  Col
+  Col,
+  Breadcrumb,
+  Icon,
+  BreadcrumbItem
 } from 'element-ui'
-
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
@@ -26,3 +28,6 @@ Vue.use(Submenu)
 Vue.use(MenuItemGroup)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(Breadcrumb)
+Vue.use(Icon)
+Vue.use(BreadcrumbItem)
