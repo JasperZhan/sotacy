@@ -6,6 +6,7 @@ import CourseManagement from '../components/CourseManagement'
 import UnitContent from '../components/UnitContent'
 import UnitInformation from '../components/UnitInformation'
 import UnitTesting from '../components/UnitTesting'
+import CreationCourse from '../components/CreationCourse'
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,7 @@ export default new VueRouter({
     { path: '/CourseManagement', component: CourseManagement },
     { path: '/UnitContent', component: UnitContent },
     { path: '/UnitInformation', component: UnitInformation },
-    { path: '/UnitTesting', component: UnitTesting }
+    { path: '/UnitTesting', component: UnitTesting },
+    { path: '/CreationCourse', component: CreationCourse }
   ]
 })
