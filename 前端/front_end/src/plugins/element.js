@@ -14,7 +14,9 @@ import {
   Col,
   Breadcrumb,
   Icon,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Card,
+  Divider
 } from 'element-ui'
 Vue.use(Button)
 Vue.use(Form)
@@ -31,3 +33,5 @@ Vue.use(Col)
 Vue.use(Breadcrumb)
 Vue.use(Icon)
 Vue.use(BreadcrumbItem)
+Vue.use(Card)
+Vue.use(Divider)
