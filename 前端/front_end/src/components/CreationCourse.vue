@@ -23,8 +23,8 @@
             <i class="el-icon-menu"></i>
             <span slot="title">单元内容</span>
           </template>
-          <el-menu-item index="2-1">全部单元</el-menu-item>
-          <el-menu-item index="2-2">添加单元</el-menu-item>
+          <el-menu-item index="2-1" @click="toUnitContent">全部单元</el-menu-item>
+          <el-menu-item index="2-2" @click="toUnitInformation">添加单元</el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">
@@ -83,11 +83,20 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    toUnitContent () {
+      this.$router.push('/UnitContent')
+    },
+    toUnitInformation () {
+      this.$router.push('/UnitInformation')
     }
   }
 }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 </style>
