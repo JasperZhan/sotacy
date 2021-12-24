@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -60,5 +62,23 @@ public class CourseServiceImpl extends ServiceImpl<CourseDao, Course> implements
             return ApiRestResponse.fail(CodeResult.EMPTY_COURSE_ID);
 
         return ApiRestResponse.success(CodeResult.SUCCESS_ADD_COURSE, course);
+    }
+    /**
+     *
+     * @author young
+     * @date 2021/12/25 00:35
+     * @version 1.0
+     */
+    @Override
+    public ApiRestResponse<List<Course>> getAllCourse(HttpServletRequest request, HttpServletResponse response) {
+        List<Course> courses=new ArrayList<>();
+        try {
+            courses=courseDao.getAll();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        if (courses==null) return ApiRestResponse.success(CodeResult.FAIL_GET_COURSE);
+        else return ApiRestResponse.success(CodeResult.SUCCESS_GET_COURSE, courses);
     }
 }
