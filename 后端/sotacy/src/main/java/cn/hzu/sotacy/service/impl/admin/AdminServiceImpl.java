@@ -47,18 +47,18 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
      * @return cn.hzu.dms.response.ApiRestResponse<cn.hzu.dms.result.CodeResult>
      */
     @Override
-    public ApiRestResponse<Object> login(HttpServletRequest request, HttpServletResponse response) {
+    public ApiRestResponse<Admin> login(HttpServletRequest request, HttpServletResponse response) {
 
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
 
         apiRestResponse = FormatCheckUtil.phoneCheck(phone);
         if (!apiRestResponse.isSuccess())
-            return apiRestResponse;
+            return ApiRestResponse.fail(apiRestResponse.getCodeResult());
 
         apiRestResponse = FormatCheckUtil.passwordCheck(password);
         if (!apiRestResponse.isSuccess())
-            return apiRestResponse;
+            return ApiRestResponse.fail(apiRestResponse.getCodeResult());
 
         QueryWrapper<Admin> wrapper = new QueryWrapper<>() ;
         wrapper.eq("phone", phone);
@@ -71,7 +71,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, Admin> implements Ad
             return ApiRestResponse.fail(CodeResult.PASSWORD_ERROR);
 
         StpUtil.login(admin.getId());
-        return ApiRestResponse.fail(CodeResult.SUCCESS_LOGIN);
+        return ApiRestResponse.success(CodeResult.SUCCESS_LOGIN);
     }
 
     /**
