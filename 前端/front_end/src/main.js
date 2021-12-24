@@ -2,11 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
-
+import VueParticles from 'vue-particles'
+import qs from 'qs'
+import axios from 'axios'
 // 导入全局样式表
 import './assets/css/global.css'
 Vue.config.productionTip = false
+Vue.use(VueParticles)
+Vue.use(qs)
+Vue.prototype.$axios = axios
 
+Vue.config.productionTip = false
 new Vue({
   router,
   render: h => h(App)
