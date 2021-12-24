@@ -32,6 +32,9 @@ public class ChoiceQuestionServiceImpl extends ServiceImpl<ChoiceQuestionDao, Ch
     @Resource
     ChoiceQuestionOptionService choiceQuestionOptionService;
 
+    @Resource
+    ChoiceQuestionDao choiceQuestionDao;
+
     /**
      * 添加选择题
      * @param request  请求
@@ -46,9 +49,12 @@ public class ChoiceQuestionServiceImpl extends ServiceImpl<ChoiceQuestionDao, Ch
         String subject = request.getParameter("subject");
         String answerOption = request.getParameter("answerOption");
         String[] option = request.getParameterValues("option");
-
+        String courseUnitId = request.getParameter("courseUnitId");
 
         ChoiceQuestion choiceQuestion = new ChoiceQuestion();
+
+        if (courseUnitId == null)
+            return ApiRestResponse.fail(CodeResult.EMPTY_COURSE_UNIT_ID);
 
         if (subject == null)
             return ApiRestResponse.fail(CodeResult.EMPTY_CHOICE_QUESTION_SUBJECT);
@@ -88,8 +94,9 @@ public class ChoiceQuestionServiceImpl extends ServiceImpl<ChoiceQuestionDao, Ch
         choiceQuestion.setAnswerOptionId(answerOptionId);
         updateById(choiceQuestion);
 
+        choiceQuestionDao.addRelationToCourseUnit(Integer.valueOf(courseUnitId), choiceQuestion.getId());
         System.out.println(answerOptionId);
 
-        return ApiRestResponse.success(CodeResult.SUCCESS_ADD_CHOICE_QUESTION);
+        return ApiRestResponse.success(CodeResult.SUCCESS_ADD_CHOICE_QUESTION, choiceQuestion);
     }
 }
