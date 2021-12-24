@@ -8,11 +8,7 @@ import cn.hzu.sotacy.response.ApiRestResponse;
 import cn.hzu.sotacy.result.CodeResult;
 import cn.hzu.sotacy.service.admin.AdminService;
 import cn.hzu.sotacy.service.sms.SmsService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
