@@ -22,3 +22,27 @@ export default new VueRouter({
     { path: '/CreationCourse', component: CreationCourse }
   ]
 })
+module.export = {
+  dev: {
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: {
+      '/api': {
+        target: 'http://127.0.0.1:8088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      host: 'localhost',
+      port: 8080,
+      autoOpenBrowser: false,
+      errorOverlay: true,
+      notifyOnErrors: true,
+      poll: false,
+      devtool: 'cheap-module-eval-source-map',
+      cacheBusting: true,
+      cssSourceMap: true
+    }
+  }
+}
