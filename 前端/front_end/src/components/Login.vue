@@ -88,12 +88,14 @@ export default {
   },
   methods: {
     login () {
-      post('//localhost:8088/admin/login', this.loginForm).then(
-        function (response) {
-          if (response.data.status === 21101) {
-            this.$router.replace('/CourseManagement')
-          }
-        }).catch(function (a) {
+      post('//localhost:8088/admin/login', this.loginForm).then((response) => {
+        console.log(response)
+        if (response.data.code === 21101) {
+          this.$router.push('/CourseManagement')
+        } else {
+          alert(response.data.msg)
+        }
+      }).catch(function (a) {
         alert('fuck')
       })
     }
