@@ -4,6 +4,8 @@ import cn.hzu.sotacy.model.course.Course;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -23,4 +25,5 @@ public interface CourseDao extends BaseMapper<Course> {
      * @return java.lang.Integer
      */
     Integer addCourse(Course course);
+    List<Course> getAll();
 }
