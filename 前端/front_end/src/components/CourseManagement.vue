@@ -8,7 +8,7 @@
     </el-menu-item>
   </el-menu>
   <el-row>
-    <el-col :span="4" style="height: 100%;">
+    <el-col :span="4" style="height: 100%;margin-top: 10px;">
       <el-radio-group v-model="isCollapse"  style="margin-left: 20%;margin-bottom: 10px" >
         <el-radio-button :label="false" style="max-height: 20px">展开</el-radio-button>
         <el-radio-button :label="true">收起</el-radio-button>
@@ -53,8 +53,25 @@
         </el-submenu>
       </el-menu>
     </el-col>
-    <el-col :span="19" style="background-color: #2b4b6b;">
-      <p>55</p>
+    <el-col :span="19" style="background-color: #2b4b6b;margin-top: 10px;">
+      <el-row>
+        <el-col v-for="(item,index) in CourseList" :key="index" :span="7" :offset="1" style="background-color: aliceblue;margin: 10px">
+          <div>
+            <el-card>
+              <div slot="header" >
+                <span>{{ item.CourseName }}</span>
+              </div>
+              <div>
+                <span>{{item.CourseDescribe}}</span>
+              </div>
+              <el-divider></el-divider>
+              <div style="float: right">
+                <span>{{ '创建时间：' + item.CourseTime}}</span>
+              </div>
+            </el-card>
+          </div>
+        </el-col>
+      </el-row>
     </el-col>
   </el-row>
 </div>
@@ -65,7 +82,11 @@ export default {
   name: 'CourseManagement',
   data () {
     return {
-      isCollapse: true
+      isCollapse: true,
+      CourseList: [{ CourseName: '课程1', CourseDescribe: 2, CourseTime: '2021/12/24' },
+        { CourseName: '课程2', CourseDescribe: 2, CourseTime: 3 },
+        { CourseName: '课程3', CourseDescribe: 2, CourseTime: 3 },
+        { CourseName: '课程3', CourseDescribe: 2, CourseTime: 3 }]
     }
   },
   methods: {
