@@ -61,6 +61,15 @@ public enum CodeResult {
     EMPTY_JUDGMENT_QUESTION_ANSWER(15102, "判断题答案为空"),
     ERROR_FORMAT_JUDGMENT_QUESTION_ANSWER(15103, "判断题答案格式错误（只能为0：错或1：对）"),
 
+    // 1.6 选择题 16000
+    // 1.6.1 管理选择题异常 16100
+    EMPTY_CHOICE_QUESTION_SUBJECT(16101, "选择题题目为空"),
+    EMPTY_CHOICE_QUESTION_ANSWER_OPTION(16102, "选择题答案为空"),
+    ERROR_FORMAT_CHOICE_QUESTION_ANSWER_OPTION(16103, "选择题答案格式错误"),
+    EMPTY_CHOICE_QUESTION_OPTION(16104, "选择题选项为空"),
+    ERROR_CHOICE_QUESTION_ANSWER_OPTION(16105, "选择题答案与选项不符合"),
+
+
 
     // 2. 业务操作成功 20000
     // 2.1 用户操作成功 21000
@@ -89,14 +98,20 @@ public enum CodeResult {
     SUCCESS_ADD_COURSE(23101, "添加课程成功"),
     SUCCESS_ADD_COURSE_UNIT(23102, "添加课程单元成功"),
 
-    // 2.4 视频服务异常 14000
-    // 2.4.1 管理视频异常 14100
+    // 2.4 视频服务正常 24000
+    // 2.4.1 管理视频正常 24100
     SUCCESS_ADD_VIDEO(24101, "添加视频成功"),
 
     // 2.5 判断题 15000
     // 2.5.1 管理判断题成功 15100
     LEGAL_JUDGMENT_QUESTION_ANSWER(25101, "判断题答案格式合法"),
-    SUCCESS_ADD_QUESTION_ANSWER(25102, "判断题添加成功");
+    SUCCESS_ADD_QUESTION_ANSWER(25102, "判断题添加成功"),
+
+    // 2.6 选择题
+    // 2.6.1 管理选择题
+    SUCCESS_ADD_CHOICE_QUESTION_OPTIONS(26101, "添加选择题选项成功"),
+    SUCCESS_ADD_CHOICE_QUESTION(26102, "添加选择题成功");
+
 
 //    INSERT_FAILED(10005, "插入失败，请重试"),
 //    UPDATE_FAILED(10008, "更新失败"),
