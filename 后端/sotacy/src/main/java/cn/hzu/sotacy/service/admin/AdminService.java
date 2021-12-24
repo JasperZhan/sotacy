@@ -25,7 +25,7 @@ public interface AdminService extends IService<Admin> {
      * @param response 回复
      * @return cn.hzu.dms.response.ApiRestResponse<cn.hzu.dms.model.User>
      */
-    ApiRestResponse<Object> login(HttpServletRequest request, HttpServletResponse response);
+    ApiRestResponse<Admin> login(HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 管理员注册

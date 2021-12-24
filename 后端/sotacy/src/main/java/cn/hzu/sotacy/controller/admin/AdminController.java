@@ -3,6 +3,7 @@ package cn.hzu.sotacy.controller.admin;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hzu.sotacy.model.Code;
+import cn.hzu.sotacy.model.admin.Admin;
 import cn.hzu.sotacy.response.ApiRestResponse;
 import cn.hzu.sotacy.result.CodeResult;
 import cn.hzu.sotacy.service.admin.AdminService;
@@ -38,7 +39,7 @@ public class AdminController {
 
     @ResponseBody
     @PostMapping("/login")
-    public ApiRestResponse<Object> login(HttpServletRequest request, HttpServletResponse response) {
+    public ApiRestResponse<Admin> login(HttpServletRequest request, HttpServletResponse response) {
         return adminService.login(request, response);
     }
 
