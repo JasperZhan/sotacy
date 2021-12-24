@@ -6,8 +6,10 @@ import CourseManagement from '../components/CourseManagement'
 import UnitContent from '../components/UnitContent'
 import UnitInformation from '../components/UnitInformation'
 import UnitTesting from '../components/UnitTesting'
+// import fa from "element-ui/src/locale/lang/fa";
 
 Vue.use(VueRouter)
+// const path = require('path')
 
 export default new VueRouter({
   routes: [
@@ -20,3 +22,27 @@ export default new VueRouter({
     { path: '/UnitTesting', component: UnitTesting }
   ]
 })
+module.export = {
+  dev: {
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: {
+      '/api': {
+        target: 'http://127.0.0.1:8088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      host: 'localhost',
+      port: 8080,
+      autoOpenBrowser: false,
+      errorOverlay: true,
+      notifyOnErrors: true,
+      poll: false,
+      devtool: 'cheap-module-eval-source-map',
+      cacheBusting: true,
+      cssSourceMap: true
+    }
+  }
+}
