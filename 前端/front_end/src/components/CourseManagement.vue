@@ -4,7 +4,7 @@
   <el-menu class="el-menu-demo"
   background-color="#d9ecff">
     <el-menu-item style="float: right;margin-top: 20px;">
-      <el-button type="primary" >退出登录</el-button>
+      <el-button type="primary" @click="returnLogin">退出登录</el-button>
     </el-menu-item>
   </el-menu>
   <el-row>
@@ -55,9 +55,9 @@
     </el-col>
     <el-col :span="19" style="background-color: #2b4b6b;margin-top: 10px;">
       <el-row>
-        <el-col v-for="(item,index) in CourseList" :key="index" :span="7" :offset="1" style="background-color: aliceblue;margin: 10px">
+        <el-col v-for="(item,index) in CourseList" :key="index" :span="7" :offset="1" style="background-color: aliceblue;margin: 10px"  >
           <div>
-            <el-card>
+            <el-card @click.native="toCourseInformation">
               <div slot="header" >
                 <span>{{ item.CourseName }}</span>
               </div>
@@ -101,6 +101,12 @@ export default {
     }, // 点击进入新建课程界面
     tip1 () {
       alert('当前就是全部课程界面啦！')
+    },
+    toCourseInformation () {
+      this.$router.push('/CourseInformation')
+    },
+    returnLogin () {
+      this.$router.push('/Login')
     }
   }
 }

@@ -4,7 +4,7 @@
   <el-menu class="el-menu-demo"
            background-color="#d9ecff">
     <el-menu-item style="float: right;margin-top: 20px;">
-      <el-button type="primary" >退出登录</el-button>
+      <el-button type="primary" @click="returnLogin">退出登录</el-button>
     </el-menu-item>
   </el-menu>
 </div>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-  name: 'UnitTesting'
+  name: 'UnitTesting',
+  methods: {
+    returnLogin () {
+      this.$router.push('/Login')
+    }
+  }
 }
 </script>
 
