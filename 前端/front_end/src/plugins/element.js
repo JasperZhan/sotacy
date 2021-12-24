@@ -16,7 +16,8 @@ import {
   Icon,
   BreadcrumbItem,
   Card,
-  Divider
+  Divider,
+  Tag
 } from 'element-ui'
 Vue.use(Button)
 Vue.use(Form)
@@ -35,3 +36,4 @@ Vue.use(Icon)
 Vue.use(BreadcrumbItem)
 Vue.use(Card)
 Vue.use(Divider)
+Vue.use(Tag)

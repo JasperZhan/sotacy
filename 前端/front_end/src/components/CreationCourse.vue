@@ -61,8 +61,19 @@
           <el-button style="float: right;margin-right: 20px;" type="primary">保存</el-button>
         </el-col>
       </el-row>
-      <el-row style="background-color: #2b4b6b">
-        新建课程的主体组件写在这里啦宝，写的时候这句话记得删掉
+      <el-row style="background-color: #2b4b6b"><div>
+        <el-form ref="form"  label-width="80px">
+          <el-form-item label="课程名称:">
+            <el-input style="width: 500px;" maxlength="30"></el-input>
+          </el-form-item>
+          <el-form-item label="课程描述:">
+            <el-input type="textarea" style="width: 500px;" :rows="4"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" >创建</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
       </el-row>
     </el-col>
   </el-row>
@@ -70,6 +81,8 @@
 </template>
 
 <script>
+import { post } from '@/common/serviceUtil'
+
 export default {
   name: 'CreationCourse',
   data () {
@@ -91,7 +104,14 @@ export default {
       this.$router.push('/UnitInformation')
     },
     returnLogin () {
-      this.$router.push('/Login')
+      post('//localhost:8088/admin/logout').then((response) => {
+        console.log(response)
+        if (response.data.isSuccess) {
+          this.$router.push('/Login')
+        } else {
+          alert('呀！退出失败，请稍后再试！')
+        }
+      })
     }
   }
 }
