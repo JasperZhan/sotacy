@@ -3,6 +3,7 @@ package cn.hzu.sotacy.dao.choiceQuestion;
 import cn.hzu.sotacy.model.choiceQuestion.ChoiceQuestion;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -14,5 +15,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ChoiceQuestionDao extends BaseMapper<ChoiceQuestion> {
-
+    Integer addRelationToCourseUnit(@Param("courseUnitId") Integer courseUnitId, @Param("choiceQuestionId") Integer choiceQuestionId);
 }
