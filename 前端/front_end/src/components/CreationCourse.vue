@@ -4,7 +4,7 @@
   <el-menu class="el-menu-demo"
            background-color="#d9ecff">
     <el-menu-item style="float: right;margin-top: 20px;">
-      <el-button type="primary" >退出登录</el-button>
+      <el-button type="primary" @click="returnLogin">退出登录</el-button>
     </el-menu-item>
   </el-menu>
   <el-row>
@@ -23,8 +23,8 @@
             <i class="el-icon-menu"></i>
             <span slot="title">单元内容</span>
           </template>
-          <el-menu-item index="2-1">全部单元</el-menu-item>
-          <el-menu-item index="2-2">添加单元</el-menu-item>
+          <el-menu-item index="2-1" @click="toUnitContent">全部单元</el-menu-item>
+          <el-menu-item index="2-2" @click="toUnitInformation">添加单元</el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">
@@ -81,6 +81,8 @@
 </template>
 
 <script>
+import { post } from '@/common/serviceUtil'
+
 export default {
   name: 'CreationCourse',
   data () {
@@ -94,11 +96,30 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    toUnitContent () {
+      this.$router.push('/UnitContent')
+    },
+    toUnitInformation () {
+      this.$router.push('/UnitInformation')
+    },
+    returnLogin () {
+      post('//localhost:8088/admin/logout').then((response) => {
+        console.log(response)
+        if (response.data.isSuccess) {
+          this.$router.push('/Login')
+        } else {
+          alert('呀！退出失败，请稍后再试！')
+        }
+      })
     }
   }
 }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 </style>
