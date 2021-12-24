@@ -3,6 +3,7 @@ package cn.hzu.sotacy.dao.blankQuestion;
 import cn.hzu.sotacy.model.blankQuestion.BlankQuestion;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -15,4 +16,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface BlankQuestionDao extends BaseMapper<BlankQuestion> {
 
+    Integer addRelationToCourseUnit(@Param("courseUnitId") Integer courseUnitId, @Param("blankQuestionId") Integer blankQuestionId);
 }

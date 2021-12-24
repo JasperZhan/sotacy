@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.hzu.sotacy.dao.blankQuestion.BlankQuestionDao">
-
+    <insert id="addRelationToCourseUnit" parameterType="Integer" useGeneratedKeys="true">
+        insert into course_unit$blank_question
+        (course_unit$blank_question.course_unit_id,
+         course_unit$blank_question.blank_question_id)
+        values(#{courseUnitId,jdbcType=INTEGER }, #{blankQuestionId,jdbcType=INTEGER});
+    </insert>
 </mapper>
