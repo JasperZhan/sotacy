@@ -23,7 +23,7 @@
             <i class="el-icon-menu"></i>
             <span slot="title">单元内容</span>
           </template>
-          <el-menu-item index="2-1">全部单元</el-menu-item>
+          <el-menu-item index="2-1" @click="tip1">全部单元</el-menu-item>
           <el-menu-item index="2-2" @click="toUnitInformation">添加单元</el-menu-item>
         </el-submenu>
         <el-submenu index="3">
@@ -60,7 +60,19 @@
         </el-col>
       </el-row>
       <el-row style="background-color: #2b4b6b">
-        新建课程的主体组件写在这里啦宝，写的时候这句话记得删掉
+        <el-col v-for="(item,index) in UnitList" :key="index" :span="20" :offset="3" style="background-color: aliceblue;margin: 20px"  >
+          <div>
+            <el-card >
+              <div slot="header" >
+                <span style="font-size: x-large">{{ item.UnitName }}</span>
+                <span style="float: right">{{ '创建时间：' + item.UnitTime}}</span>
+              </div>
+              <div>
+                <span>{{item.UnitDescribe}}</span>
+              </div>
+            </el-card>
+          </div>
+        </el-col>
       </el-row>
     </el-col>
   </el-row>
@@ -68,11 +80,18 @@
 </template>
 
 <script>
+import { post } from '@/common/serviceUtil'
+
 export default {
   name: 'UnitContent',
   data () {
     return {
-      isCollapse: true
+      isCollapse: true,
+      UnitList: [{ UnitName: '单元1', UnitDescribe: '谁知道这个单元是什么内容呢，你知道吗，我可不知道', UnitTime: '2021/12/24' },
+        { UnitName: 1, UnitDescribe: 2, UnitTime: 3 },
+        { UnitName: 1, UnitDescribe: 2, UnitTime: 3 },
+        { UnitName: 1, UnitDescribe: 2, UnitTime: 3 },
+        { UnitName: 1, UnitDescribe: 2, UnitTime: 3 }]
     }
   },
   methods: {
@@ -86,7 +105,17 @@ export default {
       this.$router.push('/UnitInformation')
     },
     returnLogin () {
-      this.$router.push('/Login')
+      post('//localhost:8088/admin/logout').then((response) => {
+        console.log(response)
+        if (response.data.isSuccess) {
+          this.$router.push('/Login')
+        } else {
+          alert('呀！退出失败，请稍后再试！')
+        }
+      })
+    },
+    tip1 () {
+      alert('你已经在全部单元界面啦！')
     }
   }
 }

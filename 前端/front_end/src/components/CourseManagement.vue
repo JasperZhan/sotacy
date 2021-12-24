@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import { post } from '@/common/serviceUtil'
 export default {
   name: 'CourseManagement',
   data () {
@@ -106,7 +107,14 @@ export default {
       this.$router.push('/CourseInformation')
     },
     returnLogin () {
-      this.$router.push('/Login')
+      post('//localhost:8088/admin/logout').then((response) => {
+        console.log(response)
+        if (response.data.isSuccess) {
+          this.$router.push('/Login')
+        } else {
+          alert('呀！退出失败，请稍后再试！')
+        }
+      })
     }
   }
 }
