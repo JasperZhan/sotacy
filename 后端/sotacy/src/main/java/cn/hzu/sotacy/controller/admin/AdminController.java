@@ -27,6 +27,7 @@ import javax.servlet.http.HttpSession;
  * @since 2021-12-23
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/admin")
 public class AdminController {
     @Resource
@@ -55,7 +56,7 @@ public class AdminController {
     }
 
     @ResponseBody
-    @RequestMapping("/getCode")
+    @PostMapping("/getCode")
     public ApiRestResponse<Code> getCode(HttpServletRequest request, HttpSession session) {
         return smsService.sendCode(request, session);
     }
