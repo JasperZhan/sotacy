@@ -16,4 +16,8 @@
                 #{courseId,jdbcType=INTEGER},
                 #{order,jdbcType=TINYINT});
     </insert>
+
+    <select id="queryAllByCourseId" resultType="cn.hzu.sotacy.model.course.CourseUnit">
+        select * from course_unit where course_id = #{courseId,jdbcType=INTEGER}
+    </select>
 </mapper>

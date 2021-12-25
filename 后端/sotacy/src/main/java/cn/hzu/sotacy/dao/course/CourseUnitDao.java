@@ -4,6 +4,8 @@ import cn.hzu.sotacy.model.course.CourseUnit;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -15,4 +17,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CourseUnitDao extends BaseMapper<CourseUnit> {
     int addCourseUnit(CourseUnit courseUnit);
+
+    List<CourseUnit> queryAllByCourseId(Integer courseId);
 }
