@@ -8,4 +8,8 @@
              course_unit$judgment_question.judgment_id)
         values(#{courseUnitId,jdbcType=INTEGER }, #{judgmentQuestionId,jdbcType=INTEGER});
     </insert>
+
+    <select id="getJudgmentQuestions" resultType="cn.hzu.sotacy.model.judgmentQuestion.JudgmentQuestion">
+        select * from judgment_question a join course_unit$judgment_question b on a.id = b.judgment_id where b.course_unit_id = #{courseUnitId}
+    </select>
 </mapper>

@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -17,4 +19,6 @@ import org.apache.ibatis.annotations.Param;
 public interface JudgmentQuestionDao extends BaseMapper<JudgmentQuestion> {
 
     Integer addRelationToCourseUnit(@Param("courseUnitId") Integer courseUnitId, @Param("judgmentQuestionId") Integer judgmentQuestionId);
+
+    List<JudgmentQuestion> getJudgmentQuestions(@Param("courseUnitId") Integer courseUnitId);
 }
