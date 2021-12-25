@@ -9,11 +9,10 @@
   </el-menu>
   <el-row>
     <el-col :span="4" style="height: 100%;margin-top: 10px;">
-      <el-radio-group v-model="isCollapse"  style="margin-left: 20%;margin-bottom: 10px" >
-        <el-radio-button :label="false" style="max-height: 20px">展开</el-radio-button>
-        <el-radio-button :label="true">收起</el-radio-button>
+      <el-radio-group   style="margin-left: 20%;margin-bottom: 10px" >
+        <el-button @click="toggleCollage">|||</el-button>
       </el-radio-group>
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" >
+      <el-menu default-active="1" unique-opened :collapse-transition="false" :collapse="isCollapse" >
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-menu"></i>
@@ -27,8 +26,8 @@
             <i class="el-icon-menu"></i>
             <span slot="title">用户管理</span>
           </template>
-            <el-menu-item index="2-1">信息设置</el-menu-item>
-            <el-menu-item index="2-2">权限设置</el-menu-item>
+            <el-menu-item index="2-1" @click="tip2">信息设置</el-menu-item>
+            <el-menu-item index="2-2" @click="tip2">权限设置</el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">
@@ -83,7 +82,7 @@ export default {
   name: 'CourseManagement',
   data () {
     return {
-      isCollapse: true,
+      isCollapse: false,
       CourseList: [{ CourseName: '课程1', CourseDescribe: 2, CourseTime: '2021/12/24' },
         { CourseName: '课程2', CourseDescribe: 2, CourseTime: 3 },
         { CourseName: '课程3', CourseDescribe: 2, CourseTime: 3 },
@@ -115,6 +114,12 @@ export default {
           alert('呀！退出失败，请稍后再试！')
         }
       })
+    },
+    tip2 () {
+      alert('呀！该功能还未开发！请耐心等待')
+    },
+    toggleCollage () {
+      this.isCollapse = !this.isCollapse
     }
   }
 }
