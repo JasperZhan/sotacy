@@ -50,6 +50,7 @@ public enum CodeResult {
     EMPTY_COURSE_UNIT_TITLE(13304, "课程单元标题为空"),
     EMPTY_COURSE_UNIT_ID(13305, "课程单元id为空"),
     ERROR_FORMAT_COURSE_UNIT_ID(13306, "课程单元id格式错误"),
+    EMPTY_COURSE_UNIT_OF_COURSE(13307, "课程的单元为空"),
 
     // 1.4 视频服务异常 14000
     // 1.4.1 管理视频异常 14100
@@ -110,6 +111,8 @@ public enum CodeResult {
     SUCCESS_ADD_COURSE(23101, "添加课程成功"),
     SUCCESS_ADD_COURSE_UNIT(23102, "添加课程单元成功"),
     SUCCESS_GET_COURSE(23103,"获取课程成功"),
+    SUCCESS_GET_COURSE_UNIT(23104, "获取课程单元成功"),
+
     // 2.4 视频服务正常 24000
     // 2.4.1 管理视频正常 24100
     SUCCESS_ADD_VIDEO(24101, "添加视频成功"),
