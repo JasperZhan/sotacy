@@ -49,17 +49,6 @@ public class BlankQuestionServiceImpl extends ServiceImpl<BlankQuestionDao, Blan
     @Override
     public ApiRestResponse<BlankQuestion> addBlankQuestion(HttpServletRequest request, HttpServletResponse response) {
 
-//        String sCourseUnitId = request.getParameter("courseUnitId");
-
-
-
-//        try {
-//            courseUnitId = Integer.parseInt(sCourseUnitId);
-//        } catch (NumberFormatException e) {
-//            e.printStackTrace();
-//            return ApiRestResponse.fail(CodeResult.ERROR_FORMAT_COURSE_UNIT_ID);
-//        }
-
         JSONObject jsonObject;
 
         try {
@@ -99,7 +88,7 @@ public class BlankQuestionServiceImpl extends ServiceImpl<BlankQuestionDao, Blan
 
             blankQuestionItem.setBlankQuestionId(blankQuestion.getId());
 
-            System.out.println(blankQuestionItem.toString());
+            System.out.println(blankQuestionItem);
         }
 
         ApiRestResponse<BlankQuestionItem> apiRestResponse = blankQuestionItemService.addBlankQuestionItem(blankQuestionItemList);
