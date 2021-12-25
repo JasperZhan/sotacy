@@ -70,6 +70,7 @@ public enum CodeResult {
     ERROR_FORMAT_CHOICE_QUESTION_ANSWER_OPTION(16103, "选择题答案格式错误"),
     EMPTY_CHOICE_QUESTION_OPTION(16104, "选择题选项为空"),
     ERROR_CHOICE_QUESTION_ANSWER_OPTION(16105, "选择题答案与选项不符合"),
+    EMPTY_CHOICE_QUESTION(16106, "选择题为空"),
 
     // 1.7 填空题 17000
     // 1.7.1 管理填空题异常
@@ -126,6 +127,7 @@ public enum CodeResult {
     // 2.6.1 管理选择题
     SUCCESS_ADD_CHOICE_QUESTION_OPTIONS(26101, "添加选择题选项成功"),
     SUCCESS_ADD_CHOICE_QUESTION(26102, "添加选择题成功"),
+    SUCCESS_GET_CHOICE_QUESTION(26103, "获取选择题成功"),
 
     // 2.7 填空题 27000
     // 2.7.1 管理填空题成功 27100
