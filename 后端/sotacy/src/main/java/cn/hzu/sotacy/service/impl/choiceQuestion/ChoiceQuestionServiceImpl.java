@@ -1,4 +1,5 @@
 package cn.hzu.sotacy.service.impl.choiceQuestion;
+import cn.hzu.sotacy.dao.choiceQuestion.ChoiceQuestionOptionDao;
 import cn.hzu.sotacy.model.choiceQuestion.ChoiceQuestion;
 import cn.hzu.sotacy.dao.choiceQuestion.ChoiceQuestionDao;
 import cn.hzu.sotacy.model.choiceQuestion.ChoiceQuestionOption;
@@ -34,6 +35,9 @@ public class ChoiceQuestionServiceImpl extends ServiceImpl<ChoiceQuestionDao, Ch
 
     @Resource
     ChoiceQuestionDao choiceQuestionDao;
+
+    @Resource
+    ChoiceQuestionOptionDao choiceQuestionOptionDao;
 
     /**
      * 添加选择题
@@ -98,5 +102,42 @@ public class ChoiceQuestionServiceImpl extends ServiceImpl<ChoiceQuestionDao, Ch
         System.out.println(answerOptionId);
 
         return ApiRestResponse.success(CodeResult.SUCCESS_ADD_CHOICE_QUESTION, choiceQuestion);
+    }
+
+    /**
+     * 查询课程单元的全部选择题
+     * @param request  请求
+     * @param response 回复
+     * @return cn.hzu.sotacy.response.ApiRestResponse<java.util.List < cn.hzu.sotacy.model.choiceQuestion.ChoiceQuestion>>
+     * @author Jasper Zhan
+     * @date 2021/12/25 10:30
+     */
+    @Override
+    public ApiRestResponse<List<ChoiceQuestion>> getAllChoiceQuestionByCourseUnit(HttpServletRequest request, HttpServletResponse response) {
+
+        String sCourseUnitId = request.getParameter("courseUnitId");
+
+        if (sCourseUnitId == null)
+            return ApiRestResponse.fail(CodeResult.EMPTY_COURSE_UNIT_ID);
+
+        int courseUnitId;
+
+        try {
+            courseUnitId = Integer.parseInt(sCourseUnitId);
+        } catch (NumberFormatException e) {
+            return ApiRestResponse.fail(CodeResult.ERROR_FORMAT_COURSE_UNIT_ID);
+        }
+
+        List<ChoiceQuestion> list = choiceQuestionDao.getChoiceQuestions(courseUnitId);
+
+        if (list == null || list.size() == 0)
+            return ApiRestResponse.fail(CodeResult.EMPTY_CHOICE_QUESTION);
+
+        for (ChoiceQuestion choiceQuestion: list) {
+            choiceQuestion.setChoiceQuestionOptions(
+                    choiceQuestionOptionDao.getChoiceQuestionOptionsByChoiceQuestionId(choiceQuestion.getId()));
+        }
+
+        return ApiRestResponse.success(CodeResult.SUCCESS_GET_CHOICE_QUESTION, list);
     }
 }

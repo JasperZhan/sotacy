@@ -50,6 +50,7 @@ public class ChoiceQuestion implements Serializable {
     @TableField("update_time")
     private LocalDateTime updateTime;
 
+    @TableField(exist = false)
     private List<ChoiceQuestionOption> choiceQuestionOptions;
 
 }
