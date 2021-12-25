@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -48,5 +50,6 @@ public class ChoiceQuestion implements Serializable {
     @TableField("update_time")
     private LocalDateTime updateTime;
 
+    private List<ChoiceQuestionOption> choiceQuestionOptions;
 
 }

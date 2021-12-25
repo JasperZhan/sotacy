@@ -40,7 +40,7 @@ public enum CodeResult {
     // 1.3 课程服务异常 13000
     // 1.3.1 管理课程异常 13100
     FAIL_ADD_COURSE(13101, "添加课程失败"),
-
+    FAIL_GET_COURSE(13102,"获取课程错误"),
     // 1.3.2 用户课程异常
 
     // 1.3.3 课程字段异常
@@ -49,6 +49,8 @@ public enum CodeResult {
     EMPTY_COURSE_UNIT_ORDER(13303, "课程单元次序为空"),
     EMPTY_COURSE_UNIT_TITLE(13304, "课程单元标题为空"),
     EMPTY_COURSE_UNIT_ID(13305, "课程单元id为空"),
+    ERROR_FORMAT_COURSE_UNIT_ID(13306, "课程单元id格式错误"),
+    EMPTY_COURSE_UNIT_OF_COURSE(13307, "课程的单元为空"),
 
     // 1.4 视频服务异常 14000
     // 1.4.1 管理视频异常 14100
@@ -68,6 +70,17 @@ public enum CodeResult {
     ERROR_FORMAT_CHOICE_QUESTION_ANSWER_OPTION(16103, "选择题答案格式错误"),
     EMPTY_CHOICE_QUESTION_OPTION(16104, "选择题选项为空"),
     ERROR_CHOICE_QUESTION_ANSWER_OPTION(16105, "选择题答案与选项不符合"),
+
+    // 1.7 填空题 17000
+    // 1.7.1 管理填空题异常
+    ERROR_TRANSFORM_JSON(17101, "json格式转换错误"),
+    EMPTY_BLANK_QUESTION_SUBJECT(17102, "填空题题目为空"),
+    EMPTY_BLANK_QUESTION_ITEM(17103, "填空题填空项为空"),
+    EMPTY_BLANK_QUESTION_ITEM_ANSWER(17104, "填空题填空项答案为空"),
+    ERROR_BLANK_QUESTION_ITEM_ORDER(17105, "填空题填空项答案次序不合法"),
+    EMPTY_BLANK_QUESTION_ITEM_CONTENT(17106, "填空题填空项答案内容为空"),
+    ERROR_ADD_BLANK_QUESTION_ITEM(17107, "添加填空题答案选项失败"),
+
 
 
 
@@ -97,6 +110,8 @@ public enum CodeResult {
     // 2.3.1 管理员课程操作正常 23100
     SUCCESS_ADD_COURSE(23101, "添加课程成功"),
     SUCCESS_ADD_COURSE_UNIT(23102, "添加课程单元成功"),
+    SUCCESS_GET_COURSE(23103,"获取课程成功"),
+    SUCCESS_GET_COURSE_UNIT(23104, "获取课程单元成功"),
 
     // 2.4 视频服务正常 24000
     // 2.4.1 管理视频正常 24100
@@ -110,7 +125,12 @@ public enum CodeResult {
     // 2.6 选择题
     // 2.6.1 管理选择题
     SUCCESS_ADD_CHOICE_QUESTION_OPTIONS(26101, "添加选择题选项成功"),
-    SUCCESS_ADD_CHOICE_QUESTION(26102, "添加选择题成功");
+    SUCCESS_ADD_CHOICE_QUESTION(26102, "添加选择题成功"),
+
+    // 2.7 填空题 27000
+    // 2.7.1 管理填空题成功 27100
+    SUCCESS_ADD_BLANK_QUESTION_ITEM(27101, "添加填空题选项成功"),
+    SUCCESS_ADD_BLANK_QUESTION(27102, "添加填空题成功");
 
 
 //    INSERT_FAILED(10005, "插入失败，请重试"),

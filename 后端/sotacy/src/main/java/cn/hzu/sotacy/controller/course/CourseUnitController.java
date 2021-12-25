@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * <p>
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2021-12-23
  */
 @RestController
-@RequestMapping("//courseUnit")
+@RequestMapping("/courseUnit")
 public class CourseUnitController {
 
     @Resource
@@ -33,5 +34,11 @@ public class CourseUnitController {
     @PostMapping("/add")
     ApiRestResponse<CourseUnit> addCourseUnit(HttpServletRequest request, HttpServletResponse response) {
         return courseUnitService.addCourseUnit(request, response);
+    }
+
+    @ResponseBody
+    @PostMapping("getAllOfCourse")
+    ApiRestResponse<List<CourseUnit>> getAllCourseUnitsOfCourse(HttpServletRequest request, HttpServletResponse response) {
+        return courseUnitService.getCourseUnitsOFCourse(request, response);
     }
 }

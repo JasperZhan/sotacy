@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * <p>
@@ -26,4 +27,14 @@ public interface CourseUnitService extends IService<CourseUnit> {
      * @return cn.hzu.sotacy.response.ApiRestResponse<cn.hzu.sotacy.model.course.CourseUnit>
      */
     ApiRestResponse<CourseUnit> addCourseUnit(HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 获取课程的所有单元信息
+     * @author Jasper Zhan
+     * @date 2021/12/25 10:06
+     * @param request 请求
+     * @param response 回复
+     * @return cn.hzu.sotacy.response.ApiRestResponse<cn.hzu.sotacy.model.course.CourseUnit>
+     */
+    ApiRestResponse<List<CourseUnit>> getCourseUnitsOFCourse(HttpServletRequest request, HttpServletResponse response);
 }

@@ -89,6 +89,9 @@ export default {
         { CourseName: '课程3', CourseDescribe: 2, CourseTime: 3 }]
     }
   },
+  mounted () {
+    this.getAllCourse()
+  },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)
@@ -110,6 +113,16 @@ export default {
         console.log(response)
         if (response.data.isSuccess) {
           this.$router.push('/Login')
+        } else {
+          alert('呀！退出失败，请稍后再试！')
+        }
+      })
+    },
+    getAllCourse () {
+      post('//localhost:8088/course/getAll').then((response) => {
+        console.log(response)
+        if (response.data.isSuccess) {
+          return response.data
         } else {
           alert('呀！退出失败，请稍后再试！')
         }

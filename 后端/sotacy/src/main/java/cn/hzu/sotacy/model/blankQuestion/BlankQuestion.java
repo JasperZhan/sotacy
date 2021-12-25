@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -43,5 +45,24 @@ public class BlankQuestion implements Serializable {
     @TableField("update_time")
     private LocalDateTime updateTime;
 
+    @TableField(exist = false)
+    private List<BlankQuestionItem> blankQuestionItemList;
 
+    @TableField(exist = false)
+    private Integer courseUnitId;
+
+    @Override
+    public String toString() {
+        StringBuilder a = new StringBuilder("------------------------------------\n" +
+                "blankQuestion = {\n" +
+                "id = '" + id + "'\n" +
+                "subject = '" + subject + "'\n" +
+                "create_time = '" + createTime + "'\n" +
+                "update_time = '" + updateTime + "'\n");
+        for (BlankQuestionItem blankQuestionItem: blankQuestionItemList) {
+            a.append(blankQuestionItem.toString());
+        }
+        a.append("}\n" + "------------------------------------");
+        return a.toString();
+    }
 }
