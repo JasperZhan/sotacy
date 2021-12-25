@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * <p>
@@ -26,4 +27,11 @@ public interface CourseService extends IService<Course> {
      * @return cn.hzu.sotacy.response.ApiRestResponse<cn.hzu.sotacy.model.course.Course>
      */
     ApiRestResponse<Course> addCourse (HttpServletRequest request, HttpServletResponse response);
+    /**
+     *
+     * @author young
+     * @date 2021/12/25 00:35
+     * @version 1.0
+     */
+    ApiRestResponse<List<Course>> getAllCourse(HttpServletRequest request, HttpServletResponse response);
 }

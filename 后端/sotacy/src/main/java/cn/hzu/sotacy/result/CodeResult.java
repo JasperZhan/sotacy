@@ -40,7 +40,7 @@ public enum CodeResult {
     // 1.3 课程服务异常 13000
     // 1.3.1 管理课程异常 13100
     FAIL_ADD_COURSE(13101, "添加课程失败"),
-
+    FAIL_GET_COURSE(13102,"获取课程错误"),
     // 1.3.2 用户课程异常
 
     // 1.3.3 课程字段异常
@@ -109,7 +109,7 @@ public enum CodeResult {
     // 2.3.1 管理员课程操作正常 23100
     SUCCESS_ADD_COURSE(23101, "添加课程成功"),
     SUCCESS_ADD_COURSE_UNIT(23102, "添加课程单元成功"),
-
+    SUCCESS_GET_COURSE(23103,"获取课程成功"),
     // 2.4 视频服务正常 24000
     // 2.4.1 管理视频正常 24100
     SUCCESS_ADD_VIDEO(24101, "添加视频成功"),
